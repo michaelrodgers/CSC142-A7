@@ -1,6 +1,7 @@
 /**
- * Created by Aaron Hand on 6/1/16.
- * Project: CSC142_ProjectV
+ * Filter a photo negative of the image
+ * @author Michael Rodgers and Benjamin Elia
+ * @version 2018.11.25
  */
 public class NegativeFilter implements Filter{
     public void filter(PixelImage pi) {

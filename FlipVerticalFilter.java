@@ -1,5 +1,8 @@
-
-
+/**
+ * Filter that flips the image vertically
+ * @author Michael Rodgers and Benjamin Elia
+ * @version 2018.11.25
+ */
 public class FlipVerticalFilter implements Filter {
 
 	@Override

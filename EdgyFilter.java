@@ -1,8 +1,7 @@
 /**
- * A filter to highlight edges in the image
- * 
- * @author Thunder Tiger Ninjas
- * @version 0.0.9
+ * Filter that highlights the edges in the image
+ * @author Michael Rodgers and Benjamin Elia
+ * @version 2018.11.25
  */
 public class EdgyFilter implements Filter {
 

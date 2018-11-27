@@ -1,12 +1,7 @@
-
-
 /**
- * GaussianFilter
- * 
- * A Filter that computes a Gaussian blur on the image.
- * 
- * @author huiyingcao
- *
+ * Filter that creates a Gaussian blur over the image
+ * @author Michael Rodgers and Benjamin Elia
+ * @version 2018.11.25
  */
 public class GaussianFilter implements Filter {
 
