@@ -1,5 +1,4 @@
-// Write your short report here (-2 if there is no report)
-/*
+/* This is a photo editor program that applies different filters to change the image uploaded by the user. 
  * 
  */
 
