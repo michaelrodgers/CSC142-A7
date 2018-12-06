@@ -1,4 +1,3 @@
-
 /**
  * Creates a similar effect to a sepia image
  * @author Michael Rodgers and Benjamin Elia

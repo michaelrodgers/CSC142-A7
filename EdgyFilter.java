@@ -10,7 +10,7 @@ public class EdgyFilter implements Filter {
 		int[][] weights = {{-1, -1,-1}, 
 						   {-1, 9, -1}, 
 						   {-1, -1, -1}};
-		Pixel[][] data = pi.computeWeightedAverages(pi, weights, false);
+		Pixel[][] data = pi.weightedAverages(pi, weights, false);
 		
 		pi.setData(data);
 	}

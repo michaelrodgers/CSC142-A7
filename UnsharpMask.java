@@ -10,7 +10,7 @@ public class UnsharpMask implements Filter {
 		int[][] weights = {{-1, -2,-1}, 
 						   {-2, 28, -2}, 
 						   {-1, -2, -1}};
-		Pixel[][] data = pi.computeWeightedAverages(pi, weights, true);
+		Pixel[][] data = pi.weightedAverages(pi, weights, true);
 		
 		pi.setData(data);
 	}

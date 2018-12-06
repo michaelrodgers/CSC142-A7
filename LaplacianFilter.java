@@ -10,7 +10,7 @@ public class LaplacianFilter implements Filter{
                 {-1, -1,-1},
                 {-1, 8, -1},
                 {-1, -1, -1}};
-        Pixel[][] data = theImage.computeWeightedAverages(theImage, weights, true);
+        Pixel[][] data = theImage.weightedAverages(theImage, weights, true);
 
         theImage.setData(data);
 

@@ -11,7 +11,7 @@ public class GaussianFilter implements Filter {
 				   {2, 4, 2}, 
 				   {1, 2, 1}};
 		
-		Pixel[][] data = theImage.computeWeightedAverages(theImage, weights, true);
+		Pixel[][] data = theImage.weightedAverages(theImage, weights, true);
 
 		theImage.setData(data);
 	}
