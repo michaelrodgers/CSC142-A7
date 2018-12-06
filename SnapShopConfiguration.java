@@ -37,6 +37,7 @@ public class SnapShopConfiguration
 		theShop.addFilter(new BlackWhite(), "Black & White");
 		theShop.addFilter(new Darken(), "Darken");
 		theShop.addFilter(new RedRemoval(), "Red Removal");
+	        theShop.addFilter(new Sepia(), "Sepia");
         
 	}
 }
