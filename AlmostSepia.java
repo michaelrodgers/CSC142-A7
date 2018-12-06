@@ -14,17 +14,17 @@ public class AlmostSepia implements Filter{
         for (int row = 0; row < pi.getHeight(); row++) {
             for (int col = 0; col < pi.getWidth(); col++) {
                 Pixel temp = data[row][col];
-                if (temp.green>=160) {
+                if (temp.green>=140) {
                 	tempg=temp.green;
                 } else {
                 tempg =(int) ((0.349*temp.red) + (0.6867*temp.green) + (0.168*temp.blue));
                 }
-                if (temp.blue>=160) {
+                if (temp.blue>=140) {
                 	tempb=temp.blue;
                 } else {
                 tempb =(int) ((0.272*temp.red) + (0.534*temp.green) + (0.131*temp.blue));
                 }
-                if (temp.red>=160) {
+                if (temp.red>=140) {
                 	tempr=temp.red;
                 } else {
                 tempr =(int) ((0.393*temp.red) + (0.769*temp.green) + (0.189*temp.blue));
