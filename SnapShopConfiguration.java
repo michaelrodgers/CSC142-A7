@@ -1,5 +1,7 @@
 /* This is a photo editor program that applies different filters to change the image uploaded by the user. 
- * 
+ * Added a filter: "Red Removal" that rather simply changes the red temp to zero which changes the color of the image
+ * Added a filter: "Almost Sepia" that produces an effect similar to sepia. While it produces a similar effect,
+ * for colors too close to white there is some distortion in the sepia style
  */
 
 /**
