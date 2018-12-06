@@ -28,5 +28,6 @@ public class SnapShopConfiguration
 		theShop.addFilter(new UnsharpMask(), "Unsharp Mask");
 		theShop.addFilter(new EdgyFilter(), "Edgy");
 	  	theShop.addFilter(new RedRemoval(), "Red Removal");
+	  	theShop.addFilter(new AlmostSepia(), "Almost Sepia");
 	}
 }
