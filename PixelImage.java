@@ -103,67 +103,66 @@ public class PixelImage
       }
     }
   }
-
+  
 	// add a method to compute a new image given weighted averages
 	public Pixel[][] weightedAverages(PixelImage pi, int[][] weights, boolean divide16){
 		Pixel[][] data = pi.getData();
-		Pixel[][] newData = data;
+		// New array for manipulated photo
+		Pixel[][] newData = pi.getData();
 		
-		// iterate through pixels
-		for (int row = 0; row < pi.getHeight(); row++) {
-			for (int col = 0; col < pi.getWidth(); col++) {
-				// store current pixel
-				Pixel temp = data[row][col];
-				// for computing averages
-				int red = 0, green = 0, blue = 0;
-				// iterate through weights and adjacent pixels
-				for (int i = 0; i < 3; i++){
-					for (int j = 0; j < 3; j++){
-						// need to ensure we stay within bounds of array
-						if ((row-1+i) >= 0 && 
-							(col-1+j) >= 0 && 
-							(row-1+i) < pi.getHeight() && 
-							(col-1+j) < pi.getWidth()){
-								// add each adjacent pixel, multiplied by its corresponding weight
-								red += data[(row-1+i)][(col-1+j)].red * weights[i][j];
-								green += data[(row-1+i)][(col-1+j)].green * weights[i][j];
-								blue += data[(row-1+i)][(col-1+j)].blue * weights[i][j];
+		// iterate through pixels  //ensure we stay within bounds of array
+		for (int row = 1; row < pi.getHeight()-1; row++) {
+		       for (int col = 1; col < pi.getWidth()-1; col++) {
+					// Assign each pixel into a 3x3 matrix
+					Pixel[][] pixelsBox= {
+							{data[row-1][col-1], data[row-1][col], data[row-1][col+1]},
+							{data[row][col-1], data[row][col], data[row][col+1]},
+							{data[row+1][col-1], data[row+1][col], data[row+1][col+1]}};
+					
+					// Stores Stores 3 values corresponding to red, green, and blue
+				    int[] newRGB = new int[3];
+					//loops through each rgb color
+					for (int x = 0; x < 3; x++) {
+						// sum holds a weighted value for a color
+						int sum = 0;
+						//loops through pixel and weight matrixes multiplying the corresponding values
+						for (int y = 0; y < 3; y++){
+							for (int z = 0; z < 3; z++){
+								//finds sum for red color value
+								if (x == 0) {
+						        	  sum += pixelsBox[y][z].red * weights[y][z];
+						        }
+								//finds sum for green color value
+						        if (x == 1) {
+						        	  sum += pixelsBox[y][z].green * weights[y][z];
+						        }
+						        //finds sum for blue color value
+						        if (x == 2) {
+						        	  sum += pixelsBox[y][z].blue * weights[y][z];
+						        }
+							}
 						}
-					}
-				}
-				// passed in if pixels will need divided by 16
-				if (divide16){
-					temp.red = red / 16;
-					temp.green = green / 16;
-					temp.blue = blue / 16;
-				} else {
-					temp.red = red;
-					temp.green = green;
-					temp.blue = blue;
-				}
-				// correct any out of bounds
-				if (temp.red > 255){
-					temp.red = 255;
-				}
-				if (temp.green > 255){
-					temp.green = 255;
-				}
-				if (temp.blue > 255){
-					temp.blue = 255;
-				}
-				if (temp.red < 0){
-					temp.red = 0;
-				}
-				if (temp.green < 0){
-					temp.green = 0;
-				}
-				if (temp.blue < 0){
-					temp.blue = 0;
-				}
-				// assign our new pixel data
-				newData[row][col] = temp;
+						// divide by 16 if specified
+						if (divide16){
+							sum /= 16;
+						}
+						// correct any out of bounds
+						if (sum > 255){
+							sum = 255;
+						}
+						if (sum < 0){
+							sum = 0;
+						}
+						// Assign a color value
+						newRGB[x] = sum;
+						}
+						// Create and return the new pixel
+				    	Pixel temp = new Pixel(newRGB[0], newRGB[1], newRGB[2]);
+						// assign our new pixel data
+						newData[row][col] = temp;
+		       }
 			}
-		}
+		//Return the new pixel
 		return newData;
-	}
+		}
 }
